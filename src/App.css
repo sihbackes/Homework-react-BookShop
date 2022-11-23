@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+.image {
+  height: 350px;
+}
+
+.truncate {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+.card {
+  transition: transform 0.2s ease-in-out;
+}
+.card:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
