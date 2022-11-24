@@ -5,12 +5,13 @@ class AddComment extends Component {
   state = {
     comment: {
       comment: "",
-      rate: "",
+      rate: "1",
       elementId: this.props.bookId,
     },
   };
 
   onChangeHandler = (value, fieldToSet) => {
+    console.log(value);
     this.setState({
       comment: {
         ...this.state.comment,
@@ -23,11 +24,12 @@ class AddComment extends Component {
     e.preventDefault();
     try {
       let response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/comments/${this.props.bookId}`,
+        `https://striveschool-api.herokuapp.com/api/comments/`,
         {
           method: "POST",
           body: JSON.stringify(this.state.comment),
           headers: {
+            "Content-Type": "application/json",
             Authorization:
               "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzZjZjNjMGQ0YmUzZDAwMTU4NDVmZTYiLCJpYXQiOjE2NjkyOTI1MjgsImV4cCI6MTY3MDUwMjEyOH0.qxWKL8aYO5zXizDr84vkG2BZYYdilNrEPxz4PkHr1MU",
           },
@@ -39,6 +41,7 @@ class AddComment extends Component {
           comment: {
             comment: "",
             rate: "",
+            elementId: "",
           },
         });
       } else {
